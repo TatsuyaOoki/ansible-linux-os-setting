@@ -25,6 +25,6 @@
   register: result_keymap_pre
 
 - name: Keymap Settings
-  ansible.builtin.command: localectl set-keymap jp106
+  ansible.builtin.command: localectl set-keymap {{ set_locale_keymap }}
   changed_when: true
-  when: "'jp106' not in result_keymap_pre.stdout"
+  when: set_locale_keymap not in result_keymap_pre.stdout

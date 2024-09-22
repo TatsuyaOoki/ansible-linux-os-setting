@@ -2,6 +2,6 @@
 - name: Check arguments for running the role
   ansible.builtin.assert:
     that:
-      # - read_excel_data is defined and
-      #   read_excel_data is string
+      - set_locale_keymap is defined and
+        set_locale_keymap is string
     fail_msg: "Require to fulfill the assert conditions to run the role"
