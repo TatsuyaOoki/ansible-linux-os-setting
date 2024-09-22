@@ -1,0 +1,5 @@
+---
+- name: Host Name Settings
+  hosts: all
+  roles:
+    - set_hostname
