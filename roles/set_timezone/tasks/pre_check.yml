@@ -1,0 +1,7 @@
+---
+- name: Check arguments for running the role
+  ansible.builtin.assert:
+    that:
+      # - read_excel_data is defined and
+      #   read_excel_data is string
+    fail_msg: "Require to fulfill the assert conditions to run the role"
