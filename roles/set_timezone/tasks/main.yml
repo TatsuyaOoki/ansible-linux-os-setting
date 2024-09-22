@@ -1,0 +1,6 @@
+---
+- name: Include pre_check tasks
+  ansible.builtin.include_tasks: pre_check.yml
+
+- name: Include main tasks
+  ansible.builtin.include_tasks: set_timezone.yml

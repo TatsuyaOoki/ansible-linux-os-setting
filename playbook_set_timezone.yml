@@ -1,0 +1,5 @@
+---
+- name: Timezone Settings
+  hosts: all
+  roles:
+    - set_timezone
