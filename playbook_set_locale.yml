@@ -1,0 +1,5 @@
+---
+- name: Locale Settings
+  hosts: all
+  roles:
+    - set_locale

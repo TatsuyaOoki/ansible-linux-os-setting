@@ -1,0 +1,30 @@
+---
+- name: Install Japanese Language Pack
+  ansible.builtin.dnf:
+    name:
+      - glibc-langpack-ja
+    state: present
+
+- name: Check System Locale
+  ansible.builtin.shell: |
+    set -o pipefail
+    localectl status | grep "System Locale"
+  changed_when: false
+  register: result_locale_pre
+
+- name: Locale Settings
+  ansible.builtin.command: localectl set-locale LANG=ja_JP.utf8
+  changed_when: true
+  when: "'LANG=ja_JP.UTF-8' not in result_locale_pre.stdout"
+
+- name: Check Keymap
+  ansible.builtin.shell: |
+    set -o pipefail
+    localectl status | grep "VC Keymap"
+  changed_when: false
+  register: result_keymap_pre
+
+- name: Keymap Settings
+  ansible.builtin.command: localectl set-keymap jp106
+  changed_when: true
+  when: "'jp106' not in result_keymap_pre.stdout"
