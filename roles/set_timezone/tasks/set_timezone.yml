@@ -1,15 +1,4 @@
 ---
-- name: Check available time zones
-  ansible.builtin.shell: |
-    set -o pipefail
-    timedatectl list-timezones | grep Asia/Tokyo
-  changed_when: false
-  register: timezone_result
-
-- name: Debug
-  ansible.builtin.debug:
-    var: timezone_result
-
 - name: Time Zone Setting
   community.general.timezone:
     name: Asia/Tokyo
