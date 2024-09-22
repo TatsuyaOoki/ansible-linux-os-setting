@@ -13,9 +13,9 @@
   register: result_locale_pre
 
 - name: Locale Settings
-  ansible.builtin.command: localectl set-locale LANG=ja_JP.utf8
+  ansible.builtin.command: localectl set-locale LANG={{ set_locale_system_locale }}
   changed_when: true
-  when: "'LANG=ja_JP.UTF-8' not in result_locale_pre.stdout"
+  when: set_locale_system_locale not in result_locale_pre.stdout
 
 - name: Check Keymap
   ansible.builtin.shell: |

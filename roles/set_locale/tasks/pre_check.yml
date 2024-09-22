@@ -4,4 +4,6 @@
     that:
       - set_locale_keymap is defined and
         set_locale_keymap is string
+      - set_locale_system_locale is defined and
+        set_locale_system_locale is string
     fail_msg: "Require to fulfill the assert conditions to run the role"
